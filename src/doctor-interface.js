@@ -12,11 +12,13 @@ $(document).ready(function() {
         listHold.push(body.data[d].name);
       }
       listHold.sort();
-      for(let j = 0; j < listHold.length; j++){
+      $("#search").append(`<option value='${listHold[0]}' selected>${listHold[0]}</option>`);
+      for(let j = 1; j < listHold.length; j++){
         $("#search").append(`<option value='${listHold[j]}'>${listHold[j]}</option>`);
       }
     });
-  $('#doctorSearch').click(function() {
+  $('#doctorId').submit(function(event) {
+    event.preventDefault();
     $(".errors").empty();
     $("#title").empty();
     $("#docs").empty();
@@ -50,6 +52,7 @@ $(document).ready(function() {
         if(body.meta.total > 0) {
           $("#title").html(`<h2>Doctors found that can help with: ${search}</h2>`);
           for (var i = 0; i < body.data.length; i++) {
+
             nameHold.push(body.data[i].practices[0].name);
             cityHold.push(body.data[i].practices[0].visit_address.city);
             stateHold.push(body.data[i].practices[0].visit_address.state);

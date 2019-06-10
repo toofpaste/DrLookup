@@ -13,16 +13,17 @@
 </nav>
 <div class="container">
     <h1>Find a doctor</h1>
+    <form id="doctorId" method="post">
     <label for="city">Enter a City:</label>
-    <input id="city" type="text">
+    <input id="city" type="text" required>
     <br>
     <label for="search">Choose a Symptom:</label>
     <select id="search"></select>
     <br>
     <label for="name">Enter a Doctors Name:</label>
-    <input id="name" type="text">
-    <button class="btn-success" id="doctorSearch">Get Information</button>
-
+    <input id="name" type="text" required>
+    <button class="btn-success" id="doctorSearch" type="submit">Get Information</button>
+  </form>
     <div class="errors"></div>
     <div id="title"></div>
     <div id="docs"></div>
